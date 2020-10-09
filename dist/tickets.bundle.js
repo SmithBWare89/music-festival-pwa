@@ -81,41 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/script.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/tickets.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/img/food-table.jpg":
-/*!***********************************!*\
-  !*** ./assets/img/food-table.jpg ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/food-table.jpg?");
-
-/***/ }),
-
-/***/ "./assets/img/grill.jpg":
+/***/ "./assets/js/tickets.js":
 /*!******************************!*\
-  !*** ./assets/img/grill.jpg ***!
+  !*** ./assets/js/tickets.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/grill.jpg?");
-
-/***/ }),
-
-/***/ "./assets/js/script.js":
-/*!*****************************!*\
-  !*** ./assets/js/script.js ***!
-  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\nconst img1 = __webpack_require__(/*! ../../assets/img/food-table.jpg */ \"./assets/img/food-table.jpg\");\r\nconst img2 = __webpack_require__(/*! ../../assets/img/grill.jpg */ \"./assets/img/grill.jpg\");\r\n\r\n$(document).ready(function () {\r\n  // First image is hard coded in index.html\r\n  const carouselSlides = [\r\n    {\r\n      title: \"We travel all over the US\",\r\n      subtitle: \"Check out our schedule!\",\r\n      img: img1,\r\n      btnText: \"View Schedule\",\r\n      btnUrl: \"schedule.html\"\r\n    },\r\n    {\r\n      title: \"Our food is seriously the bomb!\",\r\n      subtitle: \"What are you waiting for?\",\r\n      img: img2,\r\n      btnText: \"Purchase Tickets\",\r\n      btnUrl: \"tickets.html\"\r\n    },\r\n  ];\r\n\r\n  carouselSlides.forEach((slide, i) => {\r\n    $('.carousel-inner').append(`\r\n  <div class=\"carousel-item fullscreen-carousel\" style=\"background-image: url('${slide.img}')\">\r\n    <div class=\"d-flex h-100 align-items-center justify-content-center carousel-caption\">\r\n        <div class=\"container\">\r\n          <div class=\"row align-items-center justify-content-center\">\r\n              <h2 class=\"display-4 mb-2\">${slide.title}</h2>\r\n          </div>\r\n          <div class=\"row align-items-center justify-content-center\"> \r\n            <h3>${slide.subtitle}</h3>\r\n          </div>\r\n          <div class=\" mt-4 row align-items-center justify-content-center\"> \r\n            <a class=\"btn btn-primary\" href=\"${slide.btnUrl}\">\r\n                ${slide.btnText}\r\n            </a>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>`)\r\n  })\r\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./assets/js/script.js?");
+eval("__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n\r\nif (window.location.href.indexOf(\"tickets\") > -1) {\r\n\r\n    const purchaseBtn = document.getElementById(\"purchaseBtn\");\r\n    const purchaseEmail = document.getElementById(\"purchaseEmail\");\r\n    const modalEl = document.querySelector(\".modal-content\");\r\n    const modalBodyEl = document.querySelector(\".modal-body\");\r\n    const modalFooterEl = document.querySelector(\".modal-footer\");\r\n\r\n\r\n    function purchaseTicket() {\r\n\r\n        modalEl.removeChild(modalBodyEl)\r\n        modalEl.removeChild(modalFooterEl)\r\n\r\n        modalEl.append(createEl(\"div\", { class: \"modal-body\" },\r\n            createEl(\"h5\", { class: \"modal-title\" },\r\n                `Thanks for requesting a ticket purchase! We will send an email to ${purchaseEmail.value} to complete the order form!`\r\n            ),\r\n        ))\r\n\r\n    }\r\n    purchaseBtn.addEventListener(\"click\", purchaseTicket);\r\n}\n\n//# sourceURL=webpack:///./assets/js/tickets.js?");
 
 /***/ }),
 

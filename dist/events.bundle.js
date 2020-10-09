@@ -81,41 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/script.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/events.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/img/food-table.jpg":
-/*!***********************************!*\
-  !*** ./assets/img/food-table.jpg ***!
-  \***********************************/
+/***/ "./assets/js/domMethods.js":
+/*!*********************************!*\
+  !*** ./assets/js/domMethods.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/food-table.jpg?");
+eval("function createEl(htmlString, attrs, ...children) {\r\n    if (typeof htmlString !== \"string\") {\r\n        throw Error(\"Argument 'htmlString' is required and must be a string\");\r\n    }\r\n\r\n    const el = document.createElement(htmlString);\r\n\r\n    if (typeof attrs === \"object\") {\r\n        for (let key in attrs) {\r\n            if (key.substring(0, 2) === \"on\") {\r\n                el.addEventListener(key.substring(2).toLowerCase(), attrs[key]);\r\n            } else if (key === \"style\") {\r\n                for (let rule in attrs[key]) {\r\n                    el.style[rule] = attrs[key][rule];\r\n                }\r\n            } else {\r\n                el.setAttribute(key, attrs[key]);\r\n            }\r\n        }\r\n    }\r\n\r\n    children.forEach(function (child) {\r\n        let node;\r\n\r\n        if (child.constructor.name.includes(\"Element\")) {\r\n            node = child;\r\n        } else {\r\n            node = document.createTextNode(child);\r\n        }\r\n\r\n        el.appendChild(node);\r\n    });\r\n\r\n    return el;\r\n}\r\n\r\nmodule.exports = createEl;\n\n//# sourceURL=webpack:///./assets/js/domMethods.js?");
 
 /***/ }),
 
-/***/ "./assets/img/grill.jpg":
-/*!******************************!*\
-  !*** ./assets/img/grill.jpg ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/grill.jpg?");
-
-/***/ }),
-
-/***/ "./assets/js/script.js":
+/***/ "./assets/js/events.js":
 /*!*****************************!*\
-  !*** ./assets/js/script.js ***!
+  !*** ./assets/js/events.js ***!
   \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\nconst img1 = __webpack_require__(/*! ../../assets/img/food-table.jpg */ \"./assets/img/food-table.jpg\");\r\nconst img2 = __webpack_require__(/*! ../../assets/img/grill.jpg */ \"./assets/img/grill.jpg\");\r\n\r\n$(document).ready(function () {\r\n  // First image is hard coded in index.html\r\n  const carouselSlides = [\r\n    {\r\n      title: \"We travel all over the US\",\r\n      subtitle: \"Check out our schedule!\",\r\n      img: img1,\r\n      btnText: \"View Schedule\",\r\n      btnUrl: \"schedule.html\"\r\n    },\r\n    {\r\n      title: \"Our food is seriously the bomb!\",\r\n      subtitle: \"What are you waiting for?\",\r\n      img: img2,\r\n      btnText: \"Purchase Tickets\",\r\n      btnUrl: \"tickets.html\"\r\n    },\r\n  ];\r\n\r\n  carouselSlides.forEach((slide, i) => {\r\n    $('.carousel-inner').append(`\r\n  <div class=\"carousel-item fullscreen-carousel\" style=\"background-image: url('${slide.img}')\">\r\n    <div class=\"d-flex h-100 align-items-center justify-content-center carousel-caption\">\r\n        <div class=\"container\">\r\n          <div class=\"row align-items-center justify-content-center\">\r\n              <h2 class=\"display-4 mb-2\">${slide.title}</h2>\r\n          </div>\r\n          <div class=\"row align-items-center justify-content-center\"> \r\n            <h3>${slide.subtitle}</h3>\r\n          </div>\r\n          <div class=\" mt-4 row align-items-center justify-content-center\"> \r\n            <a class=\"btn btn-primary\" href=\"${slide.btnUrl}\">\r\n                ${slide.btnText}\r\n            </a>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>`)\r\n  })\r\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./assets/js/script.js?");
+eval("__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\nconst createEl = __webpack_require__(/*! ./domMethods */ \"./assets/js/domMethods.js\");\r\n\r\nif (window.location.href.indexOf(\"event\") > -1) {\r\n    const currentEvent = JSON.parse(localStorage.getItem(\"currentEvent\")) || {\r\n        title: \"Title Placeholder\",\r\n        subtitle: \"\",\r\n        description: \"\"\r\n    };\r\n\r\n    const pageEl = document.querySelector(\"#page\");\r\n\r\n    const containerEl = createEl(\"div\", { class: \"container\" },\r\n        createEl(\"div\", { class: \"card mb-3\" },\r\n            createEl(\"img\", { class: \"card-img-top\", style: \"width: 5px\", src: currentEvent.image || \"https://via.placeholder.com/350x150\" }),\r\n            createEl(\"div\", { class: \"card-body\" },\r\n                createEl(\"h1\", { class: \"card-title\" }, currentEvent.title || \"\"),\r\n                createEl(\"h2\", { class: \"text-muted\" }, currentEvent.subtitle || \"\"),\r\n                createEl(\"p\", { class: \"card-text mt-3\" }, currentEvent.description || createLoremIpsum(100)),\r\n                createEl(\"a\", { class: \"btn btn-primary\", href: \"tickets.html\" }, \"Buy Tickets\")\r\n            )\r\n        ),\r\n\r\n    )\r\n    pageEl.appendChild(containerEl)\r\n}\n\n//# sourceURL=webpack:///./assets/js/events.js?");
 
 /***/ }),
 

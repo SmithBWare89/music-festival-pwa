@@ -90,10 +90,11 @@
 /*!***********************************!*\
   !*** ./assets/img/food-table.jpg ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/food-table.jpg?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"assets/img/food-table.jpg\");\n\n//# sourceURL=webpack:///./assets/img/food-table.jpg?");
 
 /***/ }),
 
@@ -101,10 +102,11 @@ eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\n
 /*!******************************!*\
   !*** ./assets/img/grill.jpg ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack:///./assets/img/grill.jpg?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"assets/img/grill.jpg\");\n\n//# sourceURL=webpack:///./assets/img/grill.jpg?");
 
 /***/ }),
 
