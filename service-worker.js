@@ -8,6 +8,7 @@ Service workers are initialized prior to the window being created therefore we u
 Every browser has a cache limit, which can range anywhere from 50 MB to 250 MB. We've prioritized caching the JavaScript and HTML files so that the site is at least functional.
 */
 const FILES_TO_CACHE = [
+    "./",
     "./index.html",
     "./events.html",
     "./tickets.html",
@@ -24,6 +25,7 @@ const APP_PREFIX = 'FoodFest-';
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
+// Installation
 self.addEventListener('install', function (e) {
     //Installation
     e.waitUntil(
@@ -34,6 +36,7 @@ self.addEventListener('install', function (e) {
     );
 
 })
+
 // Activation
 self.addEventListener('activate', function (e) {
     e.waitUntil(
