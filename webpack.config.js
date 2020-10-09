@@ -20,7 +20,7 @@ module.exports = {
         rules: [
             {
                 // Defines a regex to pre-process the specific file extension type
-                test: /\.jpg$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -46,7 +46,7 @@ module.exports = {
             jquery: "jquery"
         }),
         new BundleAnalyzerPlugin({
-            analyzerMode: "static", // the report outputs to an HTML file in the dist folder
+            analyzerMode: "static" // the report outputs to an HTML file in the dist folder
         }),
         new WebpackPwaManifest({
             name: "Food Event",
